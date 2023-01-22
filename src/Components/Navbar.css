@@ -1,0 +1,15 @@
+.nav {
+    position: fixed;
+    width: 100%;
+    padding: 10px 30px 10px 30px;
+
+    justify-content: space-between;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.nav-pages h4:hover{
+    color: rgba(0, 0, 0, 0.484);
+}
