@@ -1,0 +1,13 @@
+.benefit {
+    padding: 80px 120px 0px 120px;
+    justify-content: center;
+    gap: 80px;
+    align-items: center;
+}
+
+.benefit img {
+    width: 660px;
+    height: 440px;
+
+    border-radius: 20px;
+}
