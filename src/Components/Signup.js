@@ -1,9 +1,11 @@
-import { Box, Button, Heading, Paragraph, TextInput } from "grommet"
+import { Box, Button, Heading, Paragraph} from "grommet"
 import TextField from '@mui/material/TextField';
 
 const Signup = (props) => {
     return (
-        <Box height="400px"
+        <Box 
+            width="100%"
+            height="400px"
              direction="column" 
              align="center"
              pad={{top: "90px"}}
