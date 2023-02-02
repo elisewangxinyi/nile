@@ -8,20 +8,24 @@ const IndiFlowLeft = (props) => {
         <Box 
             width="100%"
             direction="row"
-            justify="start"
+            justify="center"
             align="center"
-            gap="300px"
-            pad={{top: "50px", left: "100px", right: "100px"}}>
-                <Box width="600px">
-                    <Image src={props.img}/>
+            gap="200px"
+            pad={{left: "100px", right: "100px"}}>
+                <Box className="individual-img">
+                    <Image src={props.img} fit="contain"/>
                 </Box>
-                <Box align="center" width="650px" className="individual-flow">
-                    <Heading level="3" textAlign="center" margin={{top: "0px", bottom: "60px"}}>
-                        {props.title}
-                    </Heading>
-                    <Paragraph size="medium" color='#737b8d' margin={{bottom: "60px"}}>
-                        {props.detail}
-                    </Paragraph>
+                <Box 
+                    align="center" 
+                    width="600px" 
+                    gap="20px"
+                    className="individual-flow">
+                        <Heading level="3" textAlign="center" margin="none">
+                            {props.title}
+                        </Heading>
+                        <Paragraph size="medium" color='#737b8d' margin="none">
+                            {props.detail}
+                        </Paragraph>
                 </Box>
         </Box>
     )

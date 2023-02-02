@@ -1,3 +1,13 @@
 .individual-flow p{
     max-width: 100%;
 }
+
+.individual-img{
+    flex-shrink: 0;
+    width: 1px;
+    height: 480px;
+    display: block;
+    flex: 1 0 0px;
+    position: relative;
+    aspect-ratio: 1.6666666666666667 / 1;
+}
