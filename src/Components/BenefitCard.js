@@ -1,6 +1,6 @@
 import { Box, Card, Heading, Image, Paragraph } from "grommet"
 
-const IndividualCard = (props) => {
+const BenefitCard = (props) => {
     return (
         <Card>
             <Box 
@@ -37,4 +37,4 @@ const IndividualCard = (props) => {
     )
 }
 
-export default IndividualCard;
+export default BenefitCard;

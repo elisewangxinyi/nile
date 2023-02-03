@@ -2,7 +2,7 @@ import { Box, Button, Grommet, Heading, Image, Paragraph } from "grommet";
 import React from "react";
 import IndiFlowLeft from "../Components/IndiFlowLeft";
 import IndiFlowRight from "../Components/IndiFlowRight";
-import IndividualCard from "../Components/IndividualCard";
+import BenefitCard from "../Components/BenefitCard";
 import Navbar from "../Components/Navbar";
 import Signup from "../Components/Signup";
 
@@ -146,19 +146,19 @@ const Merchants = () => {
                     pad={{left: "100px", right: "100px"}}
                     direction="row"
                     justify="between">
-                        <IndividualCard
+                        <BenefitCard
                         title = "More Foot Traffic"
                         detail = {cardFootTraffic}
                         iconLeft = {process.env.PUBLIC_URL + "/assets/people-icon.svg"}
                         iconRight = {process.env.PUBLIC_URL + "/assets/feet-icon.svg"}
                         />
-                        <IndividualCard
+                        <BenefitCard
                         title = "Advertise Your Business"
                         detail = {cardAdvertisement}
                         iconLeft = {process.env.PUBLIC_URL + "/assets/mic-icon.svg"}
                         iconRight = {process.env.PUBLIC_URL + "/assets/global-icon.svg"}
                         />
-                        <IndividualCard
+                        <BenefitCard
                         title = "Build Community Connections"
                         detail = {cardCommunityConnection}
                         iconLeft = {process.env.PUBLIC_URL + "/assets/organization-icon.svg"}
