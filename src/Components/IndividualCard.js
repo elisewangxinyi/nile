@@ -28,7 +28,7 @@ const IndividualCard = (props) => {
                         />
                     </Box>
                 </Box>
-                <Paragraph textAlign="center">
+                <Paragraph textAlign="start">
                     {props.detail}
                 </Paragraph>
             </Box>

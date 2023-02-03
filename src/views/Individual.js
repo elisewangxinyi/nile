@@ -68,7 +68,7 @@ const Individuals = () => {
                     justify="center"
                     pad={{top: "xlarge", left: "200px"}}
                     >
-                        <Box width="large" align="start" className="individual-intro">
+                        <Box width="large" align="start" className="indiMerch-intro">
                             <Heading level={1}>
                                 Safe, Convenient and Easy Way to Secure Packages!
                             </Heading>
@@ -96,7 +96,7 @@ const Individuals = () => {
                             textAlign="center" 
                             color="brand"
                             margin={{top: "0px", bottom: "60px"}}>
-                                See How It Works
+                                Individual Shoppers? Let's Go!
                         </Heading>
                         <IndiFlowRight
                             title = "Request Address"
@@ -142,7 +142,6 @@ const Individuals = () => {
 
                 </Box>
                 <Box 
-                    className="individual-cards"
                     fill="horizontal"
                     pad={{left: "100px", right: "100px"}}
                     direction="row"
