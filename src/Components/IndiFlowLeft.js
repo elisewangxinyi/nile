@@ -16,11 +16,11 @@ const IndiFlowLeft = (props) => {
                     <Image src={props.img} fit="contain"/>
                 </Box>
                 <Box 
-                    align="center" 
+                    align="start" 
                     width="600px" 
                     gap="20px"
                     className="individual-flow">
-                        <Heading level="3" textAlign="center" margin="none">
+                        <Heading level="1" textAlign="start" margin="none">
                             {props.title}
                         </Heading>
                         <Paragraph size="medium" color='#737b8d' margin="none">

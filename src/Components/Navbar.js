@@ -6,8 +6,13 @@ import "./Navbar.css";
 
 const Navbar = () => {
     return (
-        <Box tag="header" direction="row" background='white' align="center"
-             className="nav">
+        <Box 
+        tag="header" 
+        direction="row" 
+        background='white' 
+        align="center"
+        style={{zIndex: "1"}}
+        className="nav">
             <div className="logo">
                 <Link to="/home">
                     <img src={process.env.PUBLIC_URL + "/assets/logo_nile.png"}

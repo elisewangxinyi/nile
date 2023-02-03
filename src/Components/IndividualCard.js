@@ -10,12 +10,22 @@ const IndividualCard = (props) => {
                 align="center"
                 pad="large">
                 <Heading level={3} textAlign="center">{props.title}</Heading>
-                <Box dir="row">
+                <Box 
+                    direction="row" 
+                    justify="center" 
+                    fill="horizontal"
+                    gap="40px">
                     <Box>
-                        <Image/>
+                        <Image 
+                            src={props.iconLeft}
+                            fit="cover"
+                        />
                     </Box>
                     <Box>
-                        <Image/>
+                        <Image 
+                            src={props.iconRight}
+                            fit="cover"
+                        />
                     </Box>
                 </Box>
                 <Paragraph textAlign="center">

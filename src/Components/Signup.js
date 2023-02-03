@@ -29,7 +29,7 @@ const Signup = (props) => {
                     // value={props.email}
                     onChange={(event) => props.getEmail(event.target.value)}
                 /> */}
-                <TextField label="type here" variant="outlined"/>
+                <TextField label="Type here" variant="outlined"/>
                 <Button 
                     primary 
                     color="brand"

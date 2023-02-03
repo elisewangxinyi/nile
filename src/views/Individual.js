@@ -1,4 +1,4 @@
-import { Box, Button, Grommet, Heading, Paragraph } from "grommet";
+import { Box, Button, Grommet, Heading, Image, Paragraph } from "grommet";
 import React from "react";
 import IndiFlowLeft from "../Components/IndiFlowLeft";
 import IndiFlowRight from "../Components/IndiFlowRight";
@@ -40,9 +40,20 @@ const cardDiscount = `Get discounts in-store on anything you buy when you
 const cardLocalBusiness = `Empower local businesses to plug the leak in the 
                            e-commerce supply chain, while spreading awareness 
                            on their company's offerings`
+
+
+
+const individualTheme = {
+global: {
+    colors: {
+        brand: '#3C64B1'
+    },
+}
+};
+
 const Individuals = () => {
     return (
-        <Grommet full>
+        <Grommet full theme={individualTheme}>
             <Navbar/>
             <Box 
                 full
@@ -83,31 +94,48 @@ const Individuals = () => {
                         <Heading 
                             level={3} 
                             textAlign="center" 
+                            color="brand"
                             margin={{top: "0px", bottom: "60px"}}>
-                                HOW IT WORKS:
+                                See How It Works
                         </Heading>
                         <IndiFlowRight
-                            title = "REQUEST ADDRESS"
+                            title = "Request Address"
                             detail = {requestAddress}
                             img = {process.env.PUBLIC_URL + "/assets/request.jpg"}
                         />
+                        <Box>
+                            <Image 
+                            src={process.env.PUBLIC_URL + "/assets/leftToright-connector.svg"}/>
+                        </Box>
                         <IndiFlowLeft
-                            title = "SELECT NILE-SECURE MERCHANT NEAR YOU"
+                            title = "Select Nile-secure Merchant Near You"
                             detail = {selectMerchant}
                             img = {process.env.PUBLIC_URL + "/assets/select-merchant.jpg"}
                         />
+                        <Box>
+                            <Image 
+                            src={process.env.PUBLIC_URL + "/assets/rightToLeft-connector.svg"}/>
+                        </Box>
                         <IndiFlowRight
-                            title = "CONFIRM WITH JUST $1"
+                            title = "Confirm With Just $1"
                             detail = {oneDollar}
                             img = {process.env.PUBLIC_URL + "/assets/Confirm.jpg"}
                         />
+                         <Box>
+                            <Image 
+                            src={process.env.PUBLIC_URL + "/assets/leftToright-connector.svg"}/>
+                        </Box>
                         <IndiFlowLeft
-                            title = "ALERT FOR PACKAGE DELIVERY"
+                            title = "Alert For Package Delivery"
                             detail = {alertDelivery}
                             img = {process.env.PUBLIC_URL + "/assets/alert.jpg"}
                         />
+                        <Box>
+                            <Image 
+                            src={process.env.PUBLIC_URL + "/assets/rightToLeft-connector.svg"}/>
+                        </Box>
                         <IndiFlowRight
-                            title = "5.TIME FOR PACKAGE PICKUP!"
+                            title = "Time For Package Pickup!"
                             detail = {pickup}
                             img = {process.env.PUBLIC_URL + "/assets/pickup.jpg"}
                         />
@@ -122,14 +150,20 @@ const Individuals = () => {
                         <IndividualCard
                         title = "No More Stolen Packages"
                         detail = {cardStolen}
+                        iconLeft = {process.env.PUBLIC_URL + "/assets/box-icon.svg"}
+                        iconRight = {process.env.PUBLIC_URL + "/assets/protect-icon.svg"}
                         />
                         <IndividualCard
                         title = "Discounts from Your Favourite"
                         detail = {cardDiscount}
+                        iconLeft = {process.env.PUBLIC_URL + "/assets/lowprice-icon.svg"}
+                        iconRight = {process.env.PUBLIC_URL + "/assets/favcart-icon.svg"}
                         />
                         <IndividualCard
                         title = "Support Local Business"
                         detail = {cardLocalBusiness}
+                        iconLeft = {process.env.PUBLIC_URL + "/assets/newstore-icon.svg"}
+                        iconRight = {process.env.PUBLIC_URL + "/assets/volunteer-icon.svg"}
                         />
                 </Box>
                 <Signup/>
