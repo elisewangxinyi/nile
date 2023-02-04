@@ -6,7 +6,30 @@ import Signup from "../Components/Signup";
 
 import "./About.css";
 
+const surveyImage = process.env.PUBLIC_URL + "/assets/about-survey.jpg"
+const surveyText = `Survey Collection and Poster. Gauge current consumer 
+                    landscape, demand & profile at CMU`
+const piracyImage = process.env.PUBLIC_URL + "/assets/about-piracy.jpg"
+const piracyText = `Porch Piracy Research`
+const competitorImage = process.env.PUBLIC_URL + "/assets/about-competitor.jpg"
+const competitorText = `Competitor Analysis: Amazon, USPS/FedEx/other postal 
+                        services, direct brand shipping`
+//Carousel content class
+class CarouselSlide {
+    constructor(img, description){
+        this.img = img;
+        this.description = description;
+    }
+}
 
+const carouselMaterial = [
+    new CarouselSlide(surveyImage, surveyText),
+    new CarouselSlide(piracyImage, piracyText),
+    new CarouselSlide(competitorImage, competitorText),
+
+]
+
+//Grommet theme
 const aboutTheme = {
     global: {
         colors: {
@@ -139,9 +162,14 @@ const About = () => {
 
                     <Box>
                         <Carousel controls="arrows" wrap>
-                            <CarouselChild/>
-                            <CarouselChild/>
-                            <CarouselChild/>
+                            {carouselMaterial.map((slide, idx) => {
+                                return <CarouselChild
+                                        key = {idx}
+                                        img = {slide.img}
+                                        info = {slide.description}
+                                        />
+
+                            })}
                         </Carousel>
                     </Box>
                 </Box>

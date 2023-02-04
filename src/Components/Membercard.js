@@ -16,7 +16,7 @@ const Membercard = (props) => {
                     <Image src={props.img} fit="cover"/>
                 </Box>
                 <Box 
-                pad={{left: "medium", right: "medium"}} 
+                pad={{left: "medium", right: "medium", bottom: "medium"}} 
                 gap="10px"
                 align="center">
                     <Heading level={4} margin="none">
