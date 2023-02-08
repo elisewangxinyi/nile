@@ -1,6 +1,6 @@
 import { Box, Button, Grommet, Heading, Image, Paragraph } from "grommet";
-import React, {useRef} from "react";
-import { motion } from 'framer-motion';
+import React, {useEffect, useRef} from "react";
+import { motion, useInView, useAnimation } from 'framer-motion';
 
 
 import IndiFlowLeft from "../Components/IndiFlowLeft";
@@ -54,7 +54,21 @@ global: {
 },
 };
 
-
+// for scroll to appear animation
+const variant = {
+    visible: { 
+        opacity: 1, 
+        y: 0, 
+        transition:{
+            duration: 0.3, 
+            delay: 0.5
+        }
+    },
+    hidden: { 
+        opacity: 0, 
+        y: 50 
+    }
+}
 
 const Individuals = () => {
     //smooth scroll to sections
@@ -62,6 +76,16 @@ const Individuals = () => {
     const handleClick = () => {
         ref.current?.scrollIntoView({behavior: 'smooth'});
     };
+    // benefit cards animation
+    const control = useAnimation();
+    const refCard = useRef(null);
+    const isInView = useInView(refCard, { once: true});
+
+    useEffect(() => {
+        if (isInView) {
+            control.start('visible')
+        }
+    })
     return (
         <Grommet full theme={individualTheme}>
             <Navbar/>
@@ -189,30 +213,61 @@ const Individuals = () => {
                         />
 
                 </Box>
-                <Box 
+                
+                    <Box 
                     fill="horizontal"
                     pad={{left: "100px", right: "100px"}}
                     direction="row"
-                    justify="between">
-                        <BenefitCard
-                        title = "No More Stolen Packages"
-                        detail = {cardStolen}
-                        iconLeft = {process.env.PUBLIC_URL + "/assets/box-icon.svg"}
-                        iconRight = {process.env.PUBLIC_URL + "/assets/protect-icon.svg"}
-                        />
-                        <BenefitCard
-                        title = "Discounts from Your Favourite"
-                        detail = {cardDiscount}
-                        iconLeft = {process.env.PUBLIC_URL + "/assets/lowprice-icon.svg"}
-                        iconRight = {process.env.PUBLIC_URL + "/assets/favcart-icon.svg"}
-                        />
-                        <BenefitCard
-                        title = "Support Local Business"
-                        detail = {cardLocalBusiness}
-                        iconLeft = {process.env.PUBLIC_URL + "/assets/newstore-icon.svg"}
-                        iconRight = {process.env.PUBLIC_URL + "/assets/volunteer-icon.svg"}
-                        />
-                </Box>
+                    justify="between"
+                    >
+                        <motion.div
+                        variants={variant}  
+                        ref = {refCard}
+                        initial='hidden'
+                        animate={control}
+                        >
+                            <BenefitCard
+                            title = "No More Stolen Packages"
+                            detail = {cardStolen}
+                            iconLeft = {process.env.PUBLIC_URL + "/assets/box-icon.svg"}
+                            iconRight = {process.env.PUBLIC_URL + "/assets/protect-icon.svg"}
+                            />
+                        </motion.div>
+
+                        <motion.div
+                        variants={variant}  
+                        ref = {refCard}
+                        initial='hidden'
+                        animate={control}
+                        >
+                            <BenefitCard
+                            title = "Discounts from Your Favourite"
+                            detail = {cardDiscount}
+                            iconLeft = {process.env.PUBLIC_URL + "/assets/lowprice-icon.svg"}
+                            iconRight = {process.env.PUBLIC_URL + "/assets/favcart-icon.svg"}
+                            />
+                        </motion.div>
+
+                        <motion.div
+                        variants={variant}  
+                        ref = {refCard}
+                        initial='hidden'
+                        animate={control}
+                        >
+                            <BenefitCard
+                            title = "Support Local Business"
+                            detail = {cardLocalBusiness}
+                            iconLeft = {process.env.PUBLIC_URL + "/assets/newstore-icon.svg"}
+                            iconRight = {process.env.PUBLIC_URL + "/assets/volunteer-icon.svg"}
+                            />
+                        </motion.div>
+
+
+                       
+                        
+                    </Box>
+               
+
                 <Signup/>
             </Box>
             

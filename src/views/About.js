@@ -135,6 +135,11 @@ const About = () => {
                         wrap
                         >
                             <Membercard
+                            img = {process.env.PUBLIC_URL + "/assets/anqi.JPG"}
+                            name = "Anqi Chen"
+                            description = "Full Stack Developer"
+                            />
+                            <Membercard
                             img = {process.env.PUBLIC_URL + "/assets/brian.tiff"}
                             name = "Brian"
                             description = "Full Stack Developer"
@@ -154,11 +159,7 @@ const About = () => {
                             name = "Tracy Meng"
                             description = "UI/UX Designer"
                             />
-                            <Membercard
-                            img = {process.env.PUBLIC_URL + "/assets/memberProfile.png"}
-                            name = "Simone Cumberbatch"
-                            description = "Full Stack Developer"
-                            />
+                            
                             <Membercard
                             img = {process.env.PUBLIC_URL + "/assets/memberProfile.png"}
                             name = "Simone Cumberbatch"
