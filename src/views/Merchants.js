@@ -1,12 +1,14 @@
 import { Box, Button, Grommet, Heading, Image, Paragraph } from "grommet";
-import React from "react";
+import React, {useRef} from "react";
+import { motion} from 'framer-motion';
+
 import IndiFlowLeft from "../Components/IndiFlowLeft";
 import IndiFlowRight from "../Components/IndiFlowRight";
 import BenefitCard from "../Components/BenefitCard";
 import Navbar from "../Components/Navbar";
 import Signup from "../Components/Signup";
 
-import "./Individuals.css";
+import "./flow.css";
 
 const listLocation = `It just takes 30 seconds to fill up your store profile and 
                       list your location on the Nile app. You can also decide 
@@ -40,21 +42,28 @@ const cardCommunityConnection = `Develop a community of patrons that frequent
 
 
 const merchantsTheme = {
-global: {
-    colors: {
-        brand: '#3C64B1'
-    },
-}
+    global: {
+        colors: {
+            brand: '#3C64B1'
+        },
+    }
 };
 
+
+
 const Merchants = () => {
+    //smooth scroll to sections
+    const ref = useRef(null);
+    const handleClick = () => {
+        ref.current?.scrollIntoView({behavior: 'smooth'});
+    };
     return (
         <Grommet full theme={merchantsTheme}>
             <Navbar/>
             <Box 
                 full
                 align="center"
-                gap="180px"
+                gap="80px"
             >
                 <Box 
                     fill="horizontal"
@@ -65,37 +74,73 @@ const Merchants = () => {
                     pad={{top: "xlarge", left: "200px"}}
                     >
                         <Box width="large" align="start" className="indiMerch-intro">
-                            <Heading level={1}>
-                                Make connections and Get more foot traffic 
-                                for Your Business!
-                            </Heading>
-                            <Paragraph>
-                                Supercharge your customer acquisition with 
-                                additional foot traffic from e-commerce shoppers 
-                                picking up their packages at your store, at times 
-                                convenient to you.<br/><br/>Gain visibility 
-                                across your neighborhood and maximize the 
-                                conversion rate of this additional foot traffic 
-                                through out in-app incentive strategies.
-                            </Paragraph>
-                            <Button secondary label="See How it Works"></Button>
-                            <Paragraph margin={{top: "50px"}}>
-                                "Dolorem nihil pariatur laboriosam velit aliquid 
-                                eveniet sit animi id. Nam est at et nesciunt 
-                                perferendis autem neque eos. Odit distinctio ut 
-                                est eos sint maxime."---Simone
-                            </Paragraph>
+                            <motion.div
+                            initial={{ opacity: 0, y: 80 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                              duration: 0.8,
+                              delay: 0.1,
+                              ease: [0, 0.71, 0.2, 1.01]
+                            }}>
+                                <Heading level={1}>
+                                    Make connections and Get more foot traffic 
+                                    for Your Business!
+                                </Heading>
+                            </motion.div>
+                            
+                            <motion.div
+                            initial={{ opacity: 0, y: 80 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                              duration: 0.8,
+                              delay: 0.3,
+                              ease: [0, 0.71, 0.2, 1.01]
+                            }}>
+                                <Paragraph>
+                                    Supercharge your customer acquisition with 
+                                    additional foot traffic from e-commerce shoppers 
+                                    picking up their packages at your store, at times 
+                                    convenient to you.<br/><br/>Gain visibility 
+                                    across your neighborhood and maximize the 
+                                    conversion rate of this additional foot traffic 
+                                    through out in-app incentive strategies.
+                                </Paragraph>
+                                <Button 
+                                    secondary 
+                                    label="See How it Works" 
+                                    onClick={handleClick}
+                                />
+                            </motion.div>
+
+                            <motion.div
+                            initial={{ opacity: 0, y: 80 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                              duration: 0.8,
+                              delay: 0.5,
+                              ease: [0, 0.71, 0.2, 1.01]
+                            }}>
+                                <Paragraph margin={{top: "50px"}}>
+                                    "Dolorem nihil pariatur laboriosam velit aliquid 
+                                    eveniet sit animi id. Nam est at et nesciunt 
+                                    perferendis autem neque eos. Odit distinctio ut 
+                                    est eos sint maxime."---Simone
+                                </Paragraph>
+                            </motion.div>
+
+                            
                         </Box>
                 </Box>
                 <Box 
                     fill
                     align="center"
-                    className="individuals-flow">
+                    className="merchants-flow"
+                    ref={ref}>
                         <Heading
                             level={3} 
                             textAlign="start" 
                             color="brand"
-                            margin={{top: "0px", bottom: "60px"}}>
+                            margin={{top: "100px", bottom: "40px"}}>
                                 Business Owners? We Gotchu!
                         </Heading>
                         <IndiFlowRight

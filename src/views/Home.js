@@ -1,6 +1,8 @@
 import { Box, Button, Grommet, Heading, Image, Paragraph } from 'grommet';
 import {Package, Basket} from "grommet-icons";
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
+
 import BenefitLeft from '../Components/BenefitLeft';
 import BenefitRight from '../Components/BenefitRight';
 import Navbar from '../Components/Navbar';
@@ -58,55 +60,89 @@ const homeTheme = {
 };
 
 const Home = () => {
+    // collect emails
     const [email, setEmail] = useState("");
+    //smooth scroll to sections
+    const refTest = useRef(null);
+    const handleClick = () => {
+        refTest.current?.scrollIntoView({behavior: 'smooth'});
+    };
+
     return (
         <Grommet full theme={homeTheme}>
             <Navbar/>
             <Box direction='row' gap="150px" className='intro'>
                 <Box align='start'>
-                    <Heading level="1" margin={{bottom: "40px"}}>
-                        Secure Your Packages and <br/>Support Local Business!
-                    </Heading>
-                    <Box direction='row' gap='xlarge'margin={{bottom: "20px"}}>
-                        <Box direction='column'>
-                            <Package color='brand'/>
-                            <Paragraph size='small'>{title_individual}</Paragraph>
+                    <motion.div
+                    initial={{opacity: 0, y: 80}}
+                    animate={{opacity: 1, y: 0}}
+                    transition={{
+                        duration: 0.8,
+                        delay: 0.5,
+                        ease: [0, 0.71, 0.2, 1.01]
+                    }}>
+                        <Heading level="1" margin={{bottom: "40px"}}>
+                            Secure Your Packages and <br/>Support Local Business!
+                        </Heading>
+                        <Box direction='row' gap='xlarge'margin={{bottom: "20px"}}>
+                            <Box direction='column'>
+                                <Package color='brand'/>
+                                <Paragraph size='small'>{title_individual}</Paragraph>
+                            </Box>
+                            <Box>
+                                <Basket color='brand'/>
+                                <Paragraph size='small'>{title_merchant}</Paragraph>
+                            </Box>
                         </Box>
-                        <Box>
-                            <Basket color='brand'/>
-                            <Paragraph size='small'>{title_merchant}</Paragraph>
-                        </Box>
-                    </Box>
-                    <Button secondary label="Learn More"/>
+                    </motion.div>
+                    
+                    <motion.div
+                    initial={{ opacity: 0, y: 80 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 1,
+                      ease: [0, 0.71, 0.2, 1.01]
+                    }}>
+                        <Button secondary label="Learn More" onClick={handleClick}/>
+                    </motion.div>
+                    
                 </Box>
              
                 <Image src={process.env.PUBLIC_URL + "/assets/intro-img.jpg"}/>
             </Box>
 
-            <BenefitLeft
-            title = {title_theft}
-            detail = {info_theft}
-            type = "For Individuals"
-            img = {process.env.PUBLIC_URL + "/assets/intro-theft1.jpg"}
-            />
-            <BenefitRight
-            title = {title_discount}
-            detail = {info_discount}
-            type = "For Individuals"
-            img = {process.env.PUBLIC_URL + "/assets/intro-discount.jpg"}
-            />
-            <BenefitLeft
-            title = {title_traffic}
-            detail = {info_traffic}
-            type = "For Merchants"
-            img = {process.env.PUBLIC_URL + "/assets/intro-traffic.jpg"}
-            />
-            <BenefitRight
-            title = {title_advertise}
-            detail = {info_advertise}
-            type = "For Merchants"
-            img = {process.env.PUBLIC_URL + "/assets/intro-advertise1.jpg"}
-            />
+            <Box ref={refTest} gap="150px" margin={{bottom: "150px"}}>
+                <BenefitLeft
+                title = {title_theft}
+                detail = {info_theft}
+                type = "individuals"
+                btnText = "For Individuals"
+                img = {process.env.PUBLIC_URL + "/assets/intro-theft1.jpg"}
+                />
+                <BenefitRight
+                title = {title_discount}
+                detail = {info_discount}
+                type = "individuals"
+                btnText = "For Individuals"
+                img = {process.env.PUBLIC_URL + "/assets/intro-discount.jpg"}
+                />
+                <BenefitLeft
+                title = {title_traffic}
+                detail = {info_traffic}
+                type = "merchants"
+                btnText = "For Merchants"
+                img = {process.env.PUBLIC_URL + "/assets/intro-traffic.jpg"}
+                />
+                <BenefitRight
+                title = {title_advertise}
+                detail = {info_advertise}
+                type = "merchants"
+                btnText = "For Merchants"
+                img = {process.env.PUBLIC_URL + "/assets/intro-advertise1.jpg"}
+                />
+            </Box>
+            
             <Signup
             getEmail = {setEmail}/>
         </Grommet>

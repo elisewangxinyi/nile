@@ -1,12 +1,15 @@
 import { Box, Button, Grommet, Heading, Image, Paragraph } from "grommet";
-import React from "react";
+import React, {useRef} from "react";
+import { motion } from 'framer-motion';
+
+
 import IndiFlowLeft from "../Components/IndiFlowLeft";
 import IndiFlowRight from "../Components/IndiFlowRight";
 import BenefitCard from "../Components/BenefitCard";
 import Navbar from "../Components/Navbar";
 import Signup from "../Components/Signup";
 
-import "./Individuals.css";
+import "./flow.css";
 
 const requestAddress = `Voluptatem nihil cumque id similique tempora
                         ut Neque asperiores aut. Et dolorem animi est 
@@ -48,56 +51,101 @@ global: {
     colors: {
         brand: '#3C64B1'
     },
-}
+},
 };
 
+
+
 const Individuals = () => {
+    //smooth scroll to sections
+    const ref = useRef(null);
+    const handleClick = () => {
+        ref.current?.scrollIntoView({behavior: 'smooth'});
+    };
     return (
         <Grommet full theme={individualTheme}>
             <Navbar/>
             <Box 
                 full
                 align="center"
-                gap="180px"
+                gap="80px"
             >
                 <Box 
-                    fill="horizontal"
-                    height="100vh" 
-                    background="url(/assets/individuals-titlebg.jpg)"
-                    direction="column"
-                    justify="center"
-                    pad={{top: "xlarge", left: "200px"}}
-                    >
-                        <Box width="large" align="start" className="indiMerch-intro">
+                fill="horizontal"
+                height="100vh" 
+                background="url(/assets/individuals-titlebg.jpg)"
+                direction="column"
+                justify="center"
+                pad={{top: "xlarge", left: "200px"}}
+                >
+                    
+                    <Box width="large" align="start" className="indiMerch-intro">
+                        <motion.div 
+                        initial={{ opacity: 0, y: 80 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          duration: 0.8,
+                          delay: 0.1,
+                          ease: [0, 0.71, 0.2, 1.01]
+                        }}>
                             <Heading level={1}>
                                 Safe, Convenient and Easy Way to Secure Packages!
                             </Heading>
+                        </motion.div>
+                        
+                        <motion.div 
+                        initial={{ opacity: 0, y: 80 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          duration: 0.8,
+                          delay: 0.3,
+                          ease: [0, 0.71, 0.2, 1.01]
+                        }}>
                             <Paragraph>
                                 Have you packages delivered to a Nile-secure merchant 
                                 of your choice in your neighborhood, if you aren't 
                                 home to receive it. <br/><br/>Well keep it safe until you 
                                 swing by to pick it up!
                             </Paragraph>
-                            <Button secondary label="See How it Works"></Button>
+                            <Button secondary label="See How it Works" onClick={handleClick}/>
+                        </motion.div>
+                        
+                        <motion.div 
+                        initial={{ opacity: 0, y: 80 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          duration: 0.8,
+                          delay: 0.5,
+                          ease: [0, 0.71, 0.2, 1.01]
+                        }}>
                             <Paragraph margin={{top: "50px"}}>
                                 "Dolorem nihil pariatur laboriosam velit aliquid 
                                 eveniet sit animi id. Nam est at et nesciunt 
                                 perferendis autem neque eos. Odit distinctio ut 
                                 est eos sint maxime."---John
                             </Paragraph>
-                        </Box>
+                        </motion.div>
+                        
+                    </Box>
+                    
                 </Box>
+                
+
                 <Box 
                     fill
                     align="center"
-                    className="individuals-flow">
-                        <Heading 
-                            level={3} 
-                            textAlign="center" 
-                            color="brand"
-                            margin={{top: "0px", bottom: "60px"}}>
-                                Individual Shoppers? Let's Go!
-                        </Heading>
+                    className="individuals-flow"
+                    ref={ref}>
+                       
+                            <Heading 
+                                level={3} 
+                                textAlign="start" 
+                                color="brand"
+                                margin={{top: "100px", bottom: "60px"}}>
+                                    Individual Shoppers? Let's Go!
+                            </Heading>
+                      
+                        
                         <IndiFlowRight
                             title = "Request Address"
                             detail = {requestAddress}
