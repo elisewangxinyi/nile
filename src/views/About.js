@@ -141,7 +141,7 @@ const About = () => {
                             />
                             <Membercard
                             img = {process.env.PUBLIC_URL + "/assets/brian.tiff"}
-                            name = "Brian"
+                            name = "Martin"
                             description = "Full Stack Developer"
                             />
                             <Membercard
