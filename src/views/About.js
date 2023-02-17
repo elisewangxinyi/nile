@@ -114,35 +114,51 @@ const About = () => {
                                 Our Story
                             </Heading>
                             <Paragraph fill margin={{bottom: "0px"}}>
-                                When we started, our mission was simple: put an end to 
+                                When we started, <strong>our mission was simple</strong>: put an end to 
                                 porch piracy across North America, while supporting 
                                 local businesses in an increasingly e-commerce-centric world.
                             </Paragraph>
                             <Paragraph fill>
-                                Today, we are building the medium that connects the 
+                                Today, we are building the medium that <strong>connects</strong> the 
                                 online shopping sphere with the brick-and-mortar one. 
-                                We pick up where e-commerce leaves off and help plug the 
-                                gaps: whether in package theft, reverse logistics, or 
+                                We pick up where e-commerce leaves off and help <strong>plug the 
+                                gaps</strong>: whether in package theft, reverse logistics, or 
                                 BOTI (Buy Online, Try In-person)
                             </Paragraph>
+                            <Paragraph color="brand" fill>
+                                <strong>
+                                    We envision a world where the online shopping 
+                                    experience blends in seamlessly with the in-person world—
+                                </strong>
+                            </Paragraph>
+                            <Paragraph fill>
+                                See a beautiful dress online but don't know your size? 
+                                No problem, <strong>try it out</strong> in three sizes at any store near 
+                                home tomorrow. And just take home the size that fits. 
+                                Bought a new phone online, but don't quite like 
+                                how it's too big for your pockets? No 
+                                worries, <strong>return it at your favorite 
+                                local coffee shop</strong>.
+                            </Paragraph>
+                            
                         </Box>
 
                         <Box
                         className="members"
                         direction="row"
                         align="center"
-                        justify="between"
+                        justify="center"
                         wrap
                         >
                             <Membercard
                             img = {process.env.PUBLIC_URL + "/assets/anqi.JPG"}
                             name = "Anqi Chen"
-                            description = "Full Stack Developer"
+                            description = "input title here"
                             />
                             <Membercard
-                            img = {process.env.PUBLIC_URL + "/assets/brian.tiff"}
-                            name = "Martin"
-                            description = "Full Stack Developer"
+                            img = {process.env.PUBLIC_URL + "/assets/BrianChien.jpg"}
+                            name = "Brian Chien"
+                            description = "Frontend Developer"
                             />
                             <Membercard
                             img = {process.env.PUBLIC_URL + "/assets/elise.jpg"}
@@ -150,30 +166,19 @@ const About = () => {
                             description = "Web Designer/Developer"
                             />
                             <Membercard
+                            img = {process.env.PUBLIC_URL + "/assets/martin.tiff"}
+                            name = "Martin Ackermann"
+                            description = "CTO"
+                            />
+                            <Membercard
                             img = {process.env.PUBLIC_URL + "/assets/tejas.png"}
                             name = "Tejas Venkatesh"
-                            description = "Business Director"
+                            description = "CEO"
                             />
                             <Membercard
                             img = {process.env.PUBLIC_URL + "/assets/tracy.png"}
                             name = "Tracy Meng"
                             description = "UI/UX Designer"
-                            />
-                            
-                            <Membercard
-                            img = {process.env.PUBLIC_URL + "/assets/memberProfile.png"}
-                            name = "Simone Cumberbatch"
-                            description = "Full Stack Developer"
-                            />
-                            <Membercard
-                            img = {process.env.PUBLIC_URL + "/assets/memberProfile.png"}
-                            name = "Simone Cumberbatch"
-                            description = "Full Stack Developer"
-                            />
-                            <Membercard
-                            img = {process.env.PUBLIC_URL + "/assets/memberProfile.png"}
-                            name = "Simone Cumberbatch"
-                            description = "Full Stack Developer"
                             />
                         </Box> 
                     </Box>

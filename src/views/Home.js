@@ -10,42 +10,46 @@ import Signup from '../Components/Signup';
 
 import "./Home.css";
 
-const title_individual = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                         sed do eiusmod tempor incididunt ut labore et dolore 
-                         magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                         exercitation ullamco laboris nisi ut aliquip ex ea 
-                         commodo consequat.`
-const title_merchant = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                         sed do eiusmod tempor incididunt ut labore et dolore 
-                         magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                         exercitation ullamco laboris nisi ut aliquip ex ea 
-                         commodo consequat.`
+const title_individual = `No longer will you have to deal with unattended packages 
+                        on your front door`
+const title_merchant = `Enjoy juicy discounts at your favorites stores when 
+                        your packages are rerouted there`
 
 
 const title_theft = `A World Without Stolen Packages`
-const info_theft = `For the typical urban/suburban American, there's a good 14% 
-                    chance they'll have a package stolen this year. And a 91% 
-                    chance you'll come home to them soaked in bad weather. 
-                    With Nile, we keep your packages safe from prying eyes and 
-                    the elements when you aren't home, at nearby shops you 
-                    already frequent.`
+const info_theft = <Paragraph color='#737b8d' margin='none'>
+                    For the typical urban/suburban American, there's a good 14% chance they'll have 
+                    a package stolen this year.<br/><br/> And a 91% chance you'll come home to them soaked 
+                    in bad weather.<br/><br/>With Nile, we keep your packages safe from prying eyes and the 
+                    elements when you aren't home, at nearby shops you already frequent.
+                    </Paragraph>
 
 const title_discount = `Get Discounts From Your Local Favourite`
-const info_discount = `Something catching your eye when picking up your package 
-                       at a Nile-secure merchant? You're in luck! We'll give you 
-                       a discount so you can take that home with you too!`
+const info_discount = <Paragraph color='#737b8d' margin='none'>
+                        Something catching your eye when picking up your package 
+                        at a Nile-secure merchant?<br/><br/>You're in luck! 
+                        We'll give you a discount so you can take that home with you too!
+                      </Paragraph>
 
 const title_traffic = `Increase Foot Traffic For Your Business`
-const info_traffic = `Running a small business? We understand how important it 
-                      is to get people through the door: Why not become a 
-                      Nile-secured merchant and bring in a stream of neighbors 
-                      checking your store out?`
+const info_traffic = <Paragraph color='#737b8d' margin='none'>
+                        Running a small business? We understand how important it is to get people through 
+                        the door.<br/><br/>Why not become a Nile-secured merchant and bring in a stream of neighbors 
+                        checking your store out?
+                    </Paragraph>
 
 const title_advertise = `Advertise Your Business Through Nile`
-const info_advertise = `Et has minim elitr intellegat. Mea aeterno eleifend 
-                        antiopam ad, nam no suscipit quaerendum. Voluptatem 
-                        nihil cumque id similique tempora ut. Neque asperiores 
-                        aut. Et dolorem animi est officia placeat impedit.`
+const info_advertise =  <Paragraph color='#737b8d' margin='none'>
+                            Online shopping has never been hotter.<br/><br/>Now, it's a better time than ever to have your physical stores be part of the e-commerce value chain. 
+                            When you sign up to be a Nile-secure delivery point, you become part of this 
+                            ecosystem. <br/><br/>As we expand further to becoming the one-stop for reverse 
+                            logistics, your store can get to be one of few in the neighborhood that has all 
+                            of e-commerce returns, and their buyers, passing through it.
+                        </Paragraph>
+
+ 
+
+
 
 
 const homeTheme = {
@@ -68,6 +72,7 @@ const Home = () => {
         refTest.current?.scrollIntoView({behavior: 'smooth'});
     };
 
+    console.log(info_advertise)
     return (
         <Grommet full theme={homeTheme}>
             <Navbar/>
@@ -87,11 +92,11 @@ const Home = () => {
                         <Box direction='row' gap='xlarge'margin={{bottom: "20px"}}>
                             <Box direction='column'>
                                 <Package color='brand'/>
-                                <Paragraph size='small'>{title_individual}</Paragraph>
+                                <Paragraph size='medium'>{title_individual}</Paragraph>
                             </Box>
                             <Box>
                                 <Basket color='brand'/>
-                                <Paragraph size='small'>{title_merchant}</Paragraph>
+                                <Paragraph size='medium'>{title_merchant}</Paragraph>
                             </Box>
                         </Box>
                     </motion.div>

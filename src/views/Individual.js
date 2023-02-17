@@ -11,27 +11,34 @@ import Signup from "../Components/Signup";
 
 import "./flow.css";
 
-const requestAddress = `Voluptatem nihil cumque id similique tempora
-                        ut Neque asperiores aut. Et dolorem animi est 
-                        officia placeat impedit occaecati quaerat. 
-                        Accusantium necessitatibus veritatis cum voluptas rem.`
+const requestAddress = <Paragraph color='#737b8d' margin='none'>
+                        You've been eyeing those fancy new shoes online. 
+                        We get it, we've been too. Once you know what you want 
+                        to purchase, go ahead and fire up 
+                        the <strong>Nile app</strong> for an <strong>address.</strong>
+                       </Paragraph>
 
-const selectMerchant = `We'll show you the Nile-Secure Merchants nearby, 
-                        as well as any juicy discounts they might have in-store. 
-                        Just pick the store most convenient to you`
+const selectMerchant = <Paragraph color='#737b8d' margin='none'>
+                        We'll show you the Nile-Secure Merchants nearby, as well 
+                        as any <strong>juicy discounts</strong> they might have in-store. Just pick the store most convenient to you
+                       </Paragraph>
 
-const oneDollar = `Confirm your package delivery with the store for just $1. 
-                   You'll be asked to enter package size(s) and tracking numbers, 
-                   if you know them.`
+const oneDollar = <Paragraph color='#737b8d' margin='none'>
+                    Confirm your package delivery with the store for just <strong>$1</strong>. You'll be asked to enter package 
+                    size(s) and tracking numbers, if you know them.
+                  </Paragraph>
 
-const alertDelivery = `We'll ping you when the package is here, either through 
-                       the app or through a text message (your choice). You'll 
-                       also get a QR code to use when you head over to pick up 
-                       your package.`
+const alertDelivery = <Paragraph color='#737b8d' margin='none'>
+                        We'll ping you when the package is here, either through 
+                        the app or through a text message (your choice). 
+                        You'll also get a <strong>QR code</strong> to use when you head over to pick up your package.
+                      </Paragraph>
 
-const pickup = `Simply swing by the shop and show the cashier your QR code to 
-                collect your package(s). Spot anything interesting while you're 
-                here? Pick it up at a discount (on us) and take it home with you.`
+const pickup = <Paragraph color='#737b8d' margin='none'>
+                Simply swing by the shop and show the cashier your <strong>QR code</strong> to collect your 
+                package(s). Spot anything interesting while you're here? Pick it up at a <strong>discount 
+                (on us)</strong> and take it home with you.
+               </Paragraph>
 
 const cardStolen = `Our verified partners always have an eye on your package, 
                     so you have one less thing to worry about.`
@@ -45,7 +52,7 @@ const cardLocalBusiness = `Empower local businesses to plug the leak in the
                            on their company's offerings`
 
 
-
+//Grommet Theme
 const individualTheme = {
 global: {
     colors: {

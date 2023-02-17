@@ -1,6 +1,6 @@
 import { Box, Button, Grommet, Heading, Image, Paragraph } from "grommet";
-import React, {useRef} from "react";
-import { motion} from 'framer-motion';
+import React, {useEffect, useRef} from "react";
+import { motion, useAnimation, useInView} from 'framer-motion';
 
 import IndiFlowLeft from "../Components/IndiFlowLeft";
 import IndiFlowRight from "../Components/IndiFlowRight";
@@ -10,26 +10,43 @@ import Signup from "../Components/Signup";
 
 import "./flow.css";
 
-const listLocation = `It just takes 30 seconds to fill up your store profile and 
-                      list your location on the Nile app. You can also decide 
-                      your own package pickup hours & package content restrictions.`
+const listLocation = <Paragraph color='#737b8d' margin='none'>
+                    It just takes <strong>30 seconds</strong> to fill up your store profile and 
+                    list your location on the Nile app. <br/><br/>You can also decide 
+                    your own package pickup hours & package content restrictions.
+                    </Paragraph>
 
-const getNotified = `Nile alerts you when a package pick up order is placed at 
-                    your store. You can view all the packages arriving at your 
-                    store, as well as estimated delivery dates, at anytime in-app.`
+const getNotified = <Paragraph color='#737b8d' margin='none'>
+                    Nile <strong>alerts</strong> you when a package pick up order 
+                    is placed at your store. You can <strong>view</strong> all 
+                    the packages arriving at your store, as well as estimated 
+                    delivery dates, at anytime in-app.
+                    </Paragraph>
 
-const packageDelivered = `Package(s) arrive right to your front desk. All you 
-                          have to do is indicate in-app that you have received 
-                          the package and store it somewhere safe. We'll handle all the communication.`
+const packageDelivered = <Paragraph color='#737b8d' margin='none'>
+                        Package(s) arrive right to your <strong>front desk</strong>. 
+                        All you have to do is indicate in-app that you have 
+                        received the package and store it somewhere safe. 
+                        We'll handle all the communication.
+                        </Paragraph>
 
-const customerPickup = `We'll ping you when the package is here, either through 
-                       the app or through a text message (your choice). You'll 
-                       also get a QR code to use when you head over to pick up 
-                       your package.`
+const customerPickup = <Paragraph color='#737b8d' margin='none'>
+                        You package's customer is notified as soon as your 
+                        receive the package and comes to pick it up 
+                        within <strong>3 business days</strong>.<br/><br/>When 
+                        they're here, simply scan the <strong>QR code</strong> that 
+                        the customer shows you through the Nile app to verify 
+                        identity and hand him his packages. Easy peasy!
+                        </Paragraph>
 
-const nileDiscount = `Simply swing by the shop and show the cashier your QR code to 
-                collect your package(s). Spot anything interesting while you're 
-                here? Pick it up at a discount (on us) and take it home with you.`
+const nileDiscount = <Paragraph color='#737b8d' margin='none'>
+                    Incentivize customers to spend in-store when they're 
+                    collecting packages.<br/><br/>On the Nile app, you'll have the 
+                    ability to <strong>add incentives</strong> to your store 
+                    screen. This results in more customers choosing your store 
+                    as their pickup location and spending more in-store when 
+                    they arrive for package pickup.
+                    </Paragraph>
 
 const cardFootTraffic = `Turn your store's quiet hours into an opportunity to 
                      attract more customers`
@@ -40,7 +57,7 @@ const cardCommunityConnection = `Develop a community of patrons that frequent
                                 your store and help bolster your customer base`
 
 
-
+// Grommet Theme
 const merchantsTheme = {
     global: {
         colors: {
@@ -48,6 +65,22 @@ const merchantsTheme = {
         },
     }
 };
+
+// for scroll to appear animation
+const variant = {
+    visible: { 
+        opacity: 1, 
+        y: 0, 
+        transition:{
+            duration: 0.3, 
+            delay: 0.5
+        }
+    },
+    hidden: { 
+        opacity: 0, 
+        y: 50 
+    }
+}
 
 
 
@@ -57,6 +90,16 @@ const Merchants = () => {
     const handleClick = () => {
         ref.current?.scrollIntoView({behavior: 'smooth'});
     };
+    // benefit cards animation
+    const control = useAnimation();
+    const refCard = useRef(null);
+    const isInView = useInView(refCard, { once: true});
+
+    useEffect(() => {
+        if (isInView) {
+            control.start('visible')
+        }
+    })
     return (
         <Grommet full theme={merchantsTheme}>
             <Navbar/>
@@ -191,24 +234,48 @@ const Merchants = () => {
                     pad={{left: "100px", right: "100px"}}
                     direction="row"
                     justify="between">
-                        <BenefitCard
-                        title = "More Foot Traffic"
-                        detail = {cardFootTraffic}
-                        iconLeft = {process.env.PUBLIC_URL + "/assets/people-icon.svg"}
-                        iconRight = {process.env.PUBLIC_URL + "/assets/feet-icon.svg"}
-                        />
-                        <BenefitCard
-                        title = "Advertise Your Business"
-                        detail = {cardAdvertisement}
-                        iconLeft = {process.env.PUBLIC_URL + "/assets/mic-icon.svg"}
-                        iconRight = {process.env.PUBLIC_URL + "/assets/global-icon.svg"}
-                        />
-                        <BenefitCard
-                        title = "Build Community Connections"
-                        detail = {cardCommunityConnection}
-                        iconLeft = {process.env.PUBLIC_URL + "/assets/organization-icon.svg"}
-                        iconRight = {process.env.PUBLIC_URL + "/assets/connections-icon.svg"}
-                        />
+                        <motion.div
+                        variants={variant}  
+                        ref = {refCard}
+                        initial='hidden'
+                        animate={control}
+                        >
+                            <BenefitCard
+                            title = "More Foot Traffic"
+                            detail = {cardFootTraffic}
+                            iconLeft = {process.env.PUBLIC_URL + "/assets/people-icon.svg"}
+                            iconRight = {process.env.PUBLIC_URL + "/assets/feet-icon.svg"}
+                            />
+                        </motion.div>
+
+                        <motion.div
+                        variants={variant}  
+                        ref = {refCard}
+                        initial='hidden'
+                        animate={control}
+                        >
+                            <BenefitCard
+                            title = "Advertise Your Business"
+                            detail = {cardAdvertisement}
+                            iconLeft = {process.env.PUBLIC_URL + "/assets/mic-icon.svg"}
+                            iconRight = {process.env.PUBLIC_URL + "/assets/global-icon.svg"}
+                            />
+                        </motion.div>
+
+                        <motion.div
+                        variants={variant}  
+                        ref = {refCard}
+                        initial='hidden'
+                        animate={control}
+                        >
+                            <BenefitCard
+                            title = "Build Community Connections"
+                            detail = {cardCommunityConnection}
+                            iconLeft = {process.env.PUBLIC_URL + "/assets/organization-icon.svg"}
+                            iconRight = {process.env.PUBLIC_URL + "/assets/connections-icon.svg"}
+                            />
+                        </motion.div>
+
                 </Box>
                 <Signup/>
             </Box>

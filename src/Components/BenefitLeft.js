@@ -43,9 +43,9 @@ const BenefitLeft = (props) => {
                     <Heading level="2">
                         {props.title}
                     </Heading>
-                    <Paragraph color='#737b8d' margin={{bottom: "60px"}}>
+                    <Box size="medium" margin={{bottom: "60px"}}>
                         {props.detail}
-                    </Paragraph>
+                    </Box>
                     <Link to={`/${props.type}`}>
                         <Button primary label={props.btnText}/>
                     </Link>

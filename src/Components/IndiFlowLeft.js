@@ -23,9 +23,9 @@ const IndiFlowLeft = (props) => {
                         <Heading level="1" textAlign="start" margin="none">
                             {props.title}
                         </Heading>
-                        <Paragraph size="medium" color='#737b8d' margin="none">
+                        <Box size="medium" margin="none">
                             {props.detail}
-                        </Paragraph>
+                        </Box>
                 </Box>
         </Box>
     )
